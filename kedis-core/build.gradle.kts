@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm")
+    `maven-publish`
 }
 
 kotlin {
@@ -8,6 +9,17 @@ kotlin {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+group = "com.github.mcxinyu"
+version = "1.0.0"
+publishing {
+    repositories {
+        maven {
+            name = "repo"
+            url = uri("${project.buildDir}/repo")
+        }
+    }
 }
 
 dependencies {
