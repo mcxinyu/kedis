@@ -49,6 +49,7 @@ public open class RedisClient(
         sendPacket(ByteReadPacket(bytes))
     }
 
+    @OptIn(KedisInternalApi::class)
     public suspend fun sendPacket(packet: ByteReadPacket) {
         outgoing.writePacket(packet)
         outgoing.flush()

@@ -1,15 +1,16 @@
 plugins {
     kotlin("jvm")
     `maven-publish`
+    id("com.github.gmazzo.buildconfig")
 }
 
 kotlin {
     explicitApi()
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
+//tasks.test {
+//    useJUnitPlatform()
+//}
 
 group = "com.github.mcxinyu"
 version = "1.0.0"
@@ -21,10 +22,14 @@ publishing {
         }
     }
     publications {
-        create<MavenPublication>("maven"){
+        create<MavenPublication>("maven") {
             from(components.getByName("kotlin"))
         }
     }
+}
+
+buildConfig {
+    buildConfigField("String", "redisUri", project.getString("redisUri") ?: "redis://:password@127.0.0.1:6379")
 }
 
 dependencies {

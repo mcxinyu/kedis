@@ -7,3 +7,5 @@ build/
 dev/
 
 *.env
+
+local.properties
