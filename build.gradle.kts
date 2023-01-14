@@ -2,13 +2,12 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     idea
-    `maven-publish`
-
     kotlin("jvm") version "1.6.10" apply false
 }
 
 subprojects {
     repositories {
+        mavenLocal()
         mavenCentral()
     }
 

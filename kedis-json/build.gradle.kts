@@ -1,22 +1,10 @@
 plugins {
     kotlin("jvm")
     kotlin("plugin.serialization") version "1.6.10"
-    `maven-publish`
 }
 
 kotlin {
     explicitApi()
-}
-
-group = "com.github.mcxinyu"
-version="1.0.0"
-publishing {
-    repositories {
-        maven {
-            name = "repo"
-            url = uri("${project.buildDir}/repo")
-        }
-    }
 }
 
 dependencies {

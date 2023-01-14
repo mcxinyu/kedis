@@ -15,11 +15,13 @@ group = "com.github.mcxinyu"
 version = "1.0.0"
 publishing {
     repositories {
+        mavenLocal()
         maven {
             name = "repo"
             url = uri("${project.buildDir}/repo")
         }
     }
+
 }
 
 dependencies {
